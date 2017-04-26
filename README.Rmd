@@ -33,6 +33,9 @@ Function `init_oauth_service_account_azure()` (in file `oauth-server-side.R`)
 
 Vignette showing how to get things working for `oauth_service_token_azure()`.
 
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 
 
