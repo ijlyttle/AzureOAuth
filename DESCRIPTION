@@ -12,3 +12,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/ijlyttle/AzureOAuth
 BugReports: https://github.com/ijlyttle/AzureOAuth/issues
+RoxygenNote: 6.0.1.9000
