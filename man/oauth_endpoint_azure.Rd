@@ -10,14 +10,14 @@ oauth_endpoint_azure(tenant_id)
 \item{tenant_id}{character}
 }
 \value{
-endpoint object returned by \code{\link[httr:oauth_enpoint]{httr::oauth_enpoint()}}
+endpoint object returned by \code{\link[httr:oauth_endpoint]{httr::oauth_endpoint()}}
 }
 \description{
 This endpoint is designed for use with Azure Datalake Store; however,
 it may work for other Azure services.
 }
 \details{
-This code is based on:
+This code for this function is based on:
 \itemize{
 \item \href{https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-rest-api#how-do-i-authenticate-using-azure-active-directory}{Azure Datalake Store documentation}
 \item \href{https://github.com/hadley/httr/blob/master/demo/oauth2-azure.r}{httr demo for Azure}

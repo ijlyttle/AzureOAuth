@@ -26,8 +26,8 @@ print(oauth_endpoint_azure(tenant_id = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"))
 
 ```{r}
 app <- oauth_app(
-  appname = Sys.getenv("azure_native_app_name"),
-  key = Sys.getenv("azure_native_client_id"),
+  appname = Sys.getenv("azure_native_application_name"),
+  key = Sys.getenv("azure_native_application_id"),
   secret = NULL
 )
 ```
@@ -49,5 +49,16 @@ token <- oauth2.0_token(
   user_params = list(resource = "https://management.core.windows.net/"),
   use_oob = FALSE
 )
+```
+
+Let's wrap this in some syntactic sugar:
+
+```{r, eval = FALSE}
+oauth_token_azure(
+  tenant_id = Sys.getenv("azure_tenant_id"),
+  application_id = Sys.getenv("azure_native_application_id"),
+  name = Sys.getenv("azure_native_application_name")
+)
+
 ```
 

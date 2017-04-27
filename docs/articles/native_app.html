@@ -74,8 +74,8 @@
 ##  authorize: https://login.microsoftonline.com/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/oauth2/authorize
 ##  access:    https://login.microsoftonline.com/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/oauth2/token</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">app &lt;-<span class="st"> </span><span class="kw">oauth_app</span>(
-  <span class="dt">appname =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_native_app_name"</span>),
-  <span class="dt">key =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_native_client_id"</span>),
+  <span class="dt">appname =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_native_application_name"</span>),
+  <span class="dt">key =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_native_application_id"</span>),
   <span class="dt">secret =</span> <span class="ot">NULL</span>
 )</code></pre></div>
 <pre><code>## &lt;oauth_app&gt; not_needed_but_can_be_useful
@@ -86,6 +86,12 @@
   <span class="dt">app =</span> app,
   <span class="dt">user_params =</span> <span class="kw">list</span>(<span class="dt">resource =</span> <span class="st">"https://management.core.windows.net/"</span>),
   <span class="dt">use_oob =</span> <span class="ot">FALSE</span>
+)</code></pre></div>
+<p>Let’s wrap this in some syntactic sugar:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/oauth_token_azure.html">oauth_token_azure</a></span>(
+  <span class="dt">tenant_id =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_tenant_id"</span>),
+  <span class="dt">application_id =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_native_application_id"</span>),
+  <span class="dt">name =</span> <span class="kw">Sys.getenv</span>(<span class="st">"azure_native_application_name"</span>)
 )</code></pre></div>
 </div>
   </div>

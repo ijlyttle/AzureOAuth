@@ -5,3 +5,5 @@
 ^\.travis\.yml$
 ^CONDUCT\.md$
 ^docs$
+^_pkgdown.yml$
+.httr-oauth$

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Describe an OAuth2.0 endpoint for Azure. — oauth_endpoint_azure • AzureOAuth</title>
+<title>Generate an OAuth2.0 token for a native Azure app. — oauth_token_azure • AzureOAuth</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,41 +79,76 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Describe an OAuth2.0 endpoint for Azure.</h1>
+    <h1>Generate an OAuth2.0 token for a native Azure app.</h1>
     </div>
 
     
-    <p>This endpoint is designed for use with Azure Datalake Store; however,
-it may work for other Azure services.</p>
+    <p>This is a wrapper to <code><a href='http://www.rdocumentation.org/packages/httr/topics/oauth2.0_token'>httr::oauth2.0_token()</a></code>, dedicated to Azure OAuth access.</p>
     
 
-    <pre class="usage"><span class='fu'>oauth_endpoint_azure</span>(<span class='no'>tenant_id</span>)</pre>
+    <pre class="usage"><span class='fu'>oauth_token_azure</span>(<span class='no'>tenant_id</span>, <span class='no'>application_id</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>user_params</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>resource</span> <span class='kw'>=</span> <span class='st'>"https://management.core.windows.net/"</span>),
+  <span class='kw'>use_oob</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>tenant_id</th>
-      <td><p>character</p></td>
+      <td><p>character, tenant id issued by Azure</p></td>
+    </tr>
+    <tr>
+      <th>application_id</th>
+      <td><p>character, application id issued by Azure</p></td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><p>character, name of application (optional)</p></td>
+    </tr>
+    <tr>
+      <th>user_params</th>
+      <td><p>named list, see <code><a href='http://www.rdocumentation.org/packages/httr/topics/oauth2.0_token'>httr::oauth2.0_token()</a></code></p></td>
+    </tr>
+    <tr>
+      <th>use_oob</th>
+      <td><p>logical, see <code><a href='http://www.rdocumentation.org/packages/httr/topics/oauth2.0_token'>httr::oauth2.0_token()</a></code></p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>other arguments passed to <code><a href='http://www.rdocumentation.org/packages/httr/topics/oauth2.0_token'>httr::oauth2.0_token()</a></code></p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>endpoint object returned by <code><a href='http://www.rdocumentation.org/packages/httr/topics/oauth_endpoint'>httr::oauth_endpoint()</a></code></p>
+    <p>A <code>Token2.0</code> reference class (RC) object, returned by <code><a href='http://www.rdocumentation.org/packages/httr/topics/oauth2.0_token'>httr::oauth2.0_token()</a></code>.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This code for this function is based on:</p><ul>
-<li><p><a href = 'https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-rest-api#how-do-i-authenticate-using-azure-active-directory'>Azure Datalake Store documentation</a></p></li>
-<li><p><a href = 'https://github.com/hadley/httr/blob/master/demo/oauth2-azure.r'>httr demo for Azure</a></p></li>
-</ul>
+    <p>The <code>tenant_id</code> is used to build the endpoint using <code><a href='oauth_endpoint_azure.html'>oauth_endpoint_azure()</a></code>.
+The <code>application_id</code> and (optional) <code>name</code> are used to build the
+app using <code>httr::ouath_app()</code>.</p>
+<p>On the Azure side, can build the app from the Azure Portal:</p><ol>
+<li><p>Go to <strong>Active Directory</strong> &gt; <strong>App registrations</strong> &gt;
+<strong>New application registration</strong>.</p></li>
+<li><p>For "Application type", choose "Native".</p></li>
+<li><p>For "Sign-on URL", enter <code>http://localhost:1410</code>.</p></li>
+<li><p>Compose this link using <code>tenant_id</code> and <code>application_id</code>,
+then send to your Azure Tenant adminstrator (maybe that's you)
+to activate the permissions:
+<code>https://login.microsoftonline.com/{tenant_id}/adminconsent?client_id={application_id}&amp;state=12345&amp;redirect_uri=http://localhost/</code></p></li>
+</ol>
+    <p>For more information on "activating" your app, please see <a href = 'https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes'>this Azure documentation</a>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>  <span class='fu'>oauth_endpoint_azure</span>(<span class='st'>"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"</span>)</div><div class='output co'>#&gt; &lt;oauth_endpoint&gt;
-#&gt;  authorize: https://login.microsoftonline.com/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/oauth2/authorize
-#&gt;  access:    https://login.microsoftonline.com/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/oauth2/token</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+    <span class='fu'>oauth_token_azure</span>(
+      <span class='kw'>tenant_id</span> <span class='kw'>=</span> <span class='st'>"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"</span>,
+      <span class='kw'>application_id</span> <span class='kw'>=</span> <span class='st'>"ffffffff-gggg-hhhh-iiii-jjjjjjjjjjjj"</span>,
+      <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"test-app"</span>
+    )
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

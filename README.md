@@ -15,17 +15,19 @@ Talk about native apps and service apps.
 What we will need
 -----------------
 
-Function `oauth_endpoint_azure()` (in file `oauth-endpoint.R`) - this will take `tenant_id` an argument. **done**
+-   \[x\] Function `oauth_endpoint_azure()` (in file `oauth-endpoint.R`) - this will take `tenant_id` an argument.
 
-Vignette showing how to get things working for `oauth2.0_token()`.
+-   \[x\] Function `oauth_token_azure()` (in file `oauth-token.R`).
 
-Function `oauth_service_token_azure()` (in file `oauth-token.R`).
+-   \[x\] Vignette showing how to get things working for `oauth2.0_token()`.
 
-R6 class `TokenServiceAccountAzure` (in file `oauth-token.R`).
+-   \[ \] Function `oauth_service_token_azure()` (in file `oauth-token.R`).
 
-Function `init_oauth_service_account_azure()` (in file `oauth-server-side.R`)
+-   \[ \] R6 class `TokenServiceAccountAzure` (in file `oauth-token.R`).
 
-Vignette showing how to get things working for `oauth_service_token_azure()`.
+-   \[ \] Function `init_oauth_service_account_azure()` (in file `oauth-server-side.R`)
+
+-   \[ \] Vignette showing how to get things working for `oauth_service_token_azure()`.
 
 Code of Conduct
 ---------------

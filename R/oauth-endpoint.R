@@ -10,7 +10,7 @@
 #'
 #' @param tenant_id character
 #'
-#' @return endpoint object returned by [httr::oauth_enpoint()]
+#' @return endpoint object returned by [httr::oauth_endpoint()]
 #' @examples
 #'   oauth_endpoint_azure("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")
 #' @export
