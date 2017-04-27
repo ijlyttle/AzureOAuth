@@ -2,7 +2,8 @@ Package: AzureOAuth
 Title: Obtain OAuth2.0 Tokens from Microsoft Azure
 Version: 0.0.0.9000
 Authors@R: c(
-  person(given = "Ian", family = "Lyttle", email = "ian.lyttle@schneider-electric.com", role = c("aut", "cre"))
+  person(given = "Ian", family = "Lyttle", email = "ian.lyttle@schneider-electric.com", role = c("aut", "cre")),
+  person("Schneider Electric", role = c("cph", "fnd"))
   )
 Description: This package builds on the httr package to make dealing with 
   Microsoft Azure a little bit easier.
@@ -13,3 +14,8 @@ LazyData: true
 URL: https://github.com/ijlyttle/AzureOAuth
 BugReports: https://github.com/ijlyttle/AzureOAuth/issues
 RoxygenNote: 6.0.1.9000
+Roxygen: list(markdown = TRUE)
+Imports: httr
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

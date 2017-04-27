@@ -1,0 +1,53 @@
+---
+title: "Authorization for Native Apps"
+author: "Ian Lyttle"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Authorization for Native Apps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library("AzureOAuth")
+library("httr")
+```
+
+This will work better with screeshots of how to set up a native app on the Azure side of things.
+
+```{r}
+endpoint <- oauth_endpoint_azure(tenant_id = Sys.getenv("azure_tenant_id"))
+```
+
+```{r echo = FALSE}
+print(oauth_endpoint_azure(tenant_id = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"))
+```
+
+```{r}
+app <- oauth_app(
+  appname = Sys.getenv("azure_native_app_name"),
+  key = Sys.getenv("azure_native_client_id"),
+  secret = NULL
+)
+```
+
+```{r echo = FALSE}
+print(
+  oauth_app(
+    appname = "not_needed_but_can_be_useful",
+    key = "ffffffff-gggg-hhhh-iiii-jjjjjjjjjjjj",
+    secret = NULL
+  )  
+)
+```
+
+```{r eval = FALSE}
+token <- oauth2.0_token(
+  endpoint = endpoint, 
+  app = app,
+  user_params = list(resource = "https://management.core.windows.net/"),
+  use_oob = FALSE
+)
+```
+
