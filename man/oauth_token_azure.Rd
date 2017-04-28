@@ -2,7 +2,7 @@
 % Please edit documentation in R/oauth-token.R
 \name{oauth_token_azure}
 \alias{oauth_token_azure}
-\title{Generate an OAuth2.0 token for a native Azure app.}
+\title{Generate OAuth2.0 token for Azure native app.}
 \usage{
 oauth_token_azure(tenant_id, application_id, name = NULL,
   user_params = list(resource = "https://management.core.windows.net/"),

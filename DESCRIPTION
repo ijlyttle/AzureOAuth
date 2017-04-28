@@ -15,7 +15,8 @@ URL: https://github.com/ijlyttle/AzureOAuth
 BugReports: https://github.com/ijlyttle/AzureOAuth/issues
 RoxygenNote: 6.0.1.9000
 Roxygen: list(markdown = TRUE)
-Imports: httr
+Imports: httr,
+    R6
 Suggests: knitr,
     rmarkdown,
     testthat

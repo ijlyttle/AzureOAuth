@@ -1,0 +1,26 @@
+---
+title: "Authorization for Service Apps"
+author: "Ian Lyttle"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Authorization for Service Apps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library("AzureOAuth")
+library("httr")
+```
+
+This will work better with screeshots of how to set up a service app on the Azure side of things.
+
+```{r eval=FALSE}
+token <- 
+  oauth_service_token_azure(
+    tenant_id = Sys.getenv("azure_tenant_id"),
+    application_id = Sys.getenv("azure_service_application_id"),
+    application_secret = Sys.getenv("azure_service_application_secret")
+  )    
+```

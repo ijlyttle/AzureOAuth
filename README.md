@@ -7,6 +7,8 @@ AzureOAuth
 
 The purpose of this package is to make it easier to deal with OAuth tokens from Microsoft Azure. Certainly, the **httr** package takes care of a great majority of the headache. It is hope that this package can alleviate any remaining headache.
 
+Needless to say, this package draws much inspitaration from **httr**.
+
 Azure access
 ------------
 
@@ -21,11 +23,11 @@ What we will need
 
 -   \[x\] Vignette showing how to get things working for `oauth2.0_token()`.
 
--   \[ \] Function `oauth_service_token_azure()` (in file `oauth-token.R`).
+-   \[x\] R6 class `TokenServiceAccountAzure` (in file `oauth-token.R`).
 
--   \[ \] R6 class `TokenServiceAccountAzure` (in file `oauth-token.R`).
+-   \[x\] Function `init_oauth_service_account_azure()` (in file `oauth-server-side.R`)
 
--   \[ \] Function `init_oauth_service_account_azure()` (in file `oauth-server-side.R`)
+-   \[x\] Function `oauth_service_token_azure()` (in file `oauth-token.R`).
 
 -   \[ \] Vignette showing how to get things working for `oauth_service_token_azure()`.
 

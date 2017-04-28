@@ -1,8 +1,5 @@
 context("native_token")
 
-## TODO: Rename context
-## TODO: Add more tests
-
 test_that("multiplication works", {
   skip_on_cran()
   skip_on_travis()

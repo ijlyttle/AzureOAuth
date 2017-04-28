@@ -53,12 +53,19 @@ token <- oauth2.0_token(
 
 Let's wrap this in some syntactic sugar:
 
-```{r, eval = FALSE}
+```{r echo = FALSE, eval = FALSE}
 oauth_token_azure(
   tenant_id = Sys.getenv("azure_tenant_id"),
   application_id = Sys.getenv("azure_native_application_id"),
   name = Sys.getenv("azure_native_application_name")
 )
+```
 
+```{r echo = FALSE, eval = FALSE}
+oauth_token_azure(
+  tenant_id = Sys.getenv("azure_tenant_id"),
+  application_id = Sys.getenv("azure_native_application_id"),
+  name = Sys.getenv("azure_native_application_name")
+)
 ```
 
