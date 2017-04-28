@@ -29,7 +29,19 @@ What we will need
 
 -   \[x\] Function `oauth_service_token_azure()` (in file `oauth-token.R`).
 
--   \[ \] Vignette showing how to get things working for `oauth_service_token_azure()`.
+-   \[x\] Vignette showing how to get things working for `oauth_service_token_azure()`.
+
+Installation
+------------
+
+**AzureOAuth** is not yet available on CRAN. You may install from GitHub:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ijlyttle/AzureOAuth")
+```
+
+If you encounter a clear bug, please file a minimal reproducible example on [github](https://github.com/ijlyttle/AzureOAuth/issues).
 
 Code of Conduct
 ---------------
