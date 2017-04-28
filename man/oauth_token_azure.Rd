@@ -30,7 +30,7 @@ This is a wrapper to \code{\link[httr:oauth2.0_token]{httr::oauth2.0_token()}}, 
 \details{
 The \code{tenant_id} is used to build the endpoint using \code{\link[=oauth_endpoint_azure]{oauth_endpoint_azure()}}.
 The \code{application_id} and (optional) \code{name} are used to build the
-app using \code{\link[httr:ouath_app]{httr::ouath_app()}}.
+app using \code{\link[httr:oauth_app]{httr::oauth_app()}}.
 
 On the Azure side, can build the app from the Azure Portal:
 \enumerate{

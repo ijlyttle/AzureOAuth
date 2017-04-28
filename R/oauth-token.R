@@ -4,7 +4,7 @@
 #'
 #' The `tenant_id` is used to build the endpoint using [oauth_endpoint_azure()].
 #' The `application_id` and (optional) `name` are used to build the
-#' app using [httr::ouath_app()].
+#' app using [httr::oauth_app()].
 #'
 #' On the Azure side, can build the app from the Azure Portal:
 #'
@@ -45,9 +45,9 @@ oauth_token_azure <- function(tenant_id, application_id, name = NULL,
 
   endpoint <- oauth_endpoint_azure(tenant_id)
 
-  app <- oauth_app(appname = name, key = application_id, secret = NULL)
+  app <- httr::oauth_app(appname = name, key = application_id, secret = NULL)
 
-  oauth2.0_token(
+  httr::oauth2.0_token(
     endpoint = endpoint,
     app = app,
     user_params = user_params,

@@ -6,6 +6,7 @@ context("native_token")
 test_that("multiplication works", {
   skip_on_cran()
   skip_on_travis()
+  skip_if_not(interactive())
 
   token <- oauth_token_azure(
     tenant_id = Sys.getenv("azure_tenant_id"),
