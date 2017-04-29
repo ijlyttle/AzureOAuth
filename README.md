@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/AzureOAuth)](https://cran.r-project.org/package=AzureOAuth) [![Travis-CI Build Status](https://travis-ci.org/ijlyttle/AzureOAuth.svg?branch=master)](https://travis-ci.org/ijlyttle/AzureOAuth)
+[![Travis-CI Build Status](https://travis-ci.org/ijlyttle/AzureOAuth.svg?branch=master)](https://travis-ci.org/ijlyttle/AzureOAuth) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/AzureOAuth)](https://cran.r-project.org/package=AzureOAuth) [![Coverage Status](https://img.shields.io/codecov/c/github/ijlyttle/AzureOAuth/master.svg)](https://codecov.io/github/ijlyttle/AzureOAuth?branch=master)
 
 AzureOAuth
 ==========
